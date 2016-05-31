@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 #! /usr/bin/env python
 #created by @ceapalaciosal
 #under code Creative Commons
@@ -7,9 +8,6 @@ import json
 sys.path.append('core')
 from matriz import *
 from wcsv import *
-
-
-
 
 def emisionsquarry(archive): 
 	
@@ -68,7 +66,6 @@ def emisionsquarry(archive):
 		for name in names: 
 			if data[key]['General']['Material'][0] in name: 
 				if 'PM25' in name:
-					#print data[key]['Emisions']['AREA'][0], constants[name]
 					data[key]['Emisions']['PM25'].append(float((data[key]['Emisions']['AREA'][0]*constants[name]*9*3600)))
 				elif 'PM10' in name: 
 					data[key]['Emisions']['PM10'].append(float((data[key]['Emisions']['AREA'][0]*constants[name]*9*3600)))
@@ -82,7 +79,6 @@ def emisionsTYear(archive):
 	DH = int(float(Mdays[0][1]))
 	DNH = int(float(Mdays[1][1]))
 	Saturday = int(float(Mdays[2][1]))
-	#print DH, DNH, Saturday
 
 	MEmisions = convertCSV(archive)
 	head = MEmisions[0,:]

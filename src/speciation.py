@@ -78,7 +78,6 @@ def speciation(archivespeciation, folder):
 
 	namesspecies = speciation.keys()
 	
-
 	for species in namesspecies:
 		for File in Files25:
 			data = {}

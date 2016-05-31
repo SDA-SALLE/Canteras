@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 #! /usr/bin/env python
 #created by @ceapalaciosal
 #under code Creative Commons
@@ -39,7 +40,8 @@ for archive in archives:
 #Speciation
 print 'Start Speciation Canteras'
 
-#Canteras
+#Speciation
 archivespeciation = os.path.join ('..', 'data', 'in', 'PE', 'CANT_SCP_PROF_PM25.xlsx')
 folderCant = os.path.join('..', 'data', 'out', 'desagregation', '')
 speciation(archivespeciation, folderCant)
+

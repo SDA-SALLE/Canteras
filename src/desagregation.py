@@ -176,7 +176,6 @@ def final(Archive):
 		csvsalida.write(data[key]['GENERAL']['POLNAME'][0])
 		csvsalida.write(',')
 		csvsalida.write(data[key]['GENERAL']['UNIT'][0])
-		#csvsalida.write(',')
 		hours = data[key]['hours'].keys()
 		for hour in hours:
 			csvsalida.write(',')
