@@ -9,9 +9,9 @@ sys.path.append('core')
 from matriz import *
 from wcsv import *
 
-def emisionsquarry(archive): 
+def emisionsquarry(archive, year): 
 	
-	archiveConstants = os.path.join('..', 'data', 'in', 'constants', 'FE.xlsx')
+	archiveConstants = os.path.join('..', 'data', 'in', 'constants', 'FE_' + year + '.xlsx')
 	Mconstants = convertXLSX(archiveConstants)
 	constants = {}
 	for i in range(1, Mconstants.shape[0]):
@@ -70,11 +70,11 @@ def emisionsquarry(archive):
 				elif 'PM10' in name: 
 					data[key]['Emisions']['PM10'].append(float((data[key]['Emisions']['AREA'][0]*constants[name]*9*3600)))
 
-	folder = os.path.join('..', 'data', 'out', 'EMISIONS', '')
-	writeEmisions(data, folder)
+	folder = os.path.join('..', 'data', 'out', 'emisions', '')
+	writeEmisions(data, folder, year)
 
-def emisionsTYear(archive):
-	archiveDays = os.path.join('..', 'data', 'in', 'constants', 'DAYS.xlsx')
+def emisionsTYear(archive, year):
+	archiveDays = os.path.join('..', 'data', 'in', 'constants', 'DAYS_' + year + '.xlsx')
 	Mdays = convertXLSX(archiveDays)
 	DH = int(float(Mdays[0][1]))
 	DNH = int(float(Mdays[1][1]))
@@ -103,7 +103,7 @@ def emisionsTYear(archive):
 	ETYearPM10 = (EGDPM10/1000000)*DH + Saturday
 
 	folder = os.path.join('..', 'data', 'out', 'emisions', '')
-	writeEmisionsTYear(EGDPM25, EGDPM10, ETYearPM25, ETYearPM10, folder)
+	writeEmisionsTYear(EGDPM25, EGDPM10, ETYearPM25, ETYearPM10, folder, year)
 
 
 
